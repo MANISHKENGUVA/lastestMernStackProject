@@ -1,0 +1,208 @@
+/* Neon Theme Variables */
+:root {
+  --neon-primary: #0ff;
+  --neon-secondary: #f0f;
+  --neon-accent: #0f0;
+  --neon-background: #0a0a0f;
+  --neon-surface: #1a1a24;
+  --neon-text: #fff;
+  --neon-glow: 0 0 10px;
+}
+
+/* Base styles */
+body {
+  background: radial-gradient(circle at center, #151520 0%, var(--neon-background) 100%);
+  color: var(--neon-text);
+  min-height: 100vh;
+}
+
+/* Neon text effects */
+.neon-text {
+  color: var(--neon-text);
+  text-shadow: 0 0 5px var(--neon-primary),
+               0 0 10px var(--neon-primary),
+               0 0 20px var(--neon-primary);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+/* Neon borders */
+.neon-border {
+  border: 2px solid var(--neon-primary);
+  box-shadow: 0 0 5px var(--neon-primary),
+              inset 0 0 5px var(--neon-primary);
+  transition: all 0.3s ease;
+}
+
+.neon-border:hover {
+  border-color: var(--neon-secondary);
+  box-shadow: 0 0 15px var(--neon-secondary),
+              inset 0 0 10px var(--neon-secondary);
+}
+
+/* Neon buttons */
+.neon-button {
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid var(--neon-primary);
+  color: var(--neon-primary);
+  text-shadow: 0 0 5px var(--neon-primary);
+  box-shadow: 0 0 5px var(--neon-primary),
+              inset 0 0 5px var(--neon-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.neon-button:hover::before {
+  left: 100%;
+}
+
+.neon-button:hover {
+  background: var(--neon-primary);
+  color: var(--neon-background);
+  box-shadow: 0 0 20px var(--neon-primary);
+  transform: translateY(-2px);
+}
+
+/* Neon cards */
+.neon-card {
+  background: linear-gradient(145deg, var(--neon-surface) 0%, rgba(26, 26, 36, 0.9) 100%);
+  border: 1px solid var(--neon-primary);
+  box-shadow: 0 0 10px var(--neon-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 65%, rgba(0, 255, 255, 0.1) 100%);
+  pointer-events: none;
+}
+
+.neon-card:hover {
+  box-shadow: 0 0 25px var(--neon-primary);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Category colors with neon effect */
+.neon-category-appetizer { 
+  --neon-category: #ff0;
+  border-color: #ff0;
+  box-shadow: 0 0 10px #ff0;
+}
+
+.neon-category-main { 
+  --neon-category: #f0f;
+  border-color: #f0f;
+  box-shadow: 0 0 10px #f0f;
+}
+
+.neon-category-pasta { 
+  --neon-category: #0ff;
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+}
+
+.neon-category-pizza { 
+  --neon-category: #f70;
+  border-color: #f70;
+  box-shadow: 0 0 10px #f70;
+}
+
+.neon-category-seafood { 
+  --neon-category: #0df;
+  border-color: #0df;
+  box-shadow: 0 0 10px #0df;
+}
+
+.neon-category-salad { 
+  --neon-category: #0f0;
+  border-color: #0f0;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.neon-category-dessert { 
+  --neon-category: #f0f;
+  border-color: #f0f;
+  box-shadow: 0 0 10px #f0f;
+}
+
+.neon-category-beverage { 
+  --neon-category: #0ff;
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff;
+}
+
+/* Animations */
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 5px var(--neon-primary),
+                 0 0 10px var(--neon-primary),
+                 0 0 20px var(--neon-primary);
+  }
+  to {
+    text-shadow: 0 0 5px var(--neon-primary),
+                 0 0 20px var(--neon-primary),
+                 0 0 30px var(--neon-primary);
+  }
+}
+
+/* Custom scrollbar with neon effect */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--neon-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-primary);
+  border-radius: 4px;
+  box-shadow: 0 0 5px var(--neon-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-secondary);
+  box-shadow: 0 0 10px var(--neon-secondary);
+}
+
+/* Input fields with neon effect */
+.neon-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--neon-primary);
+  color: var(--neon-text);
+  box-shadow: 0 0 5px var(--neon-primary);
+  transition: all 0.3s ease;
+}
+
+.neon-input:focus {
+  border-color: var(--neon-secondary);
+  box-shadow: 0 0 15px var(--neon-secondary);
+  outline: none;
+}
+
+/* Price tags with neon effect */
+.neon-price {
+  color: var(--neon-primary);
+  text-shadow: 0 0 5px var(--neon-primary);
+  font-weight: bold;
+}
